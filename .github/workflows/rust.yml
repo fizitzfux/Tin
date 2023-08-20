@@ -17,8 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Prepare environment
-      run: rustup override set nightly && rustup component add rust-src
+      run: rustup override set nightly && rustup component add rust-src llvm-tools-preview && cargo install bootimage && sudo apt update && sudo apt install qemu-system-x86
     - name: Build
       run: cargo build --verbose
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo test --verbose 
