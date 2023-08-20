@@ -17,8 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Prepare environment
-      run: rustup override set nightly && rustup component add rust-src && cargo install bootimage
+      run: rustup override set nightly && rustup component add rust-src && cargo install bootimage && rustup component add llvm-tools-preview
     - name: Build
       run: cargo build --verbose
     - name: Run tests
-      run: cargo bootimage && qemu-system-x86_64 -drive format=raw,file=/home/runner/work/Tin/Tin/target/x86_64-tin/debug/bootimage-tin.bin -device isa-debug-exit,iobase=0xf4,iosize=0x04 -serial stdio -display none 
+      run: cargo test --verbose 
