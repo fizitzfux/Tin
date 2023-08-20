@@ -21,4 +21,4 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo bootimage && qemu-system-x86_64 -drive format=raw,file=/home/runner/work/Tin/Tin/target/x86_64-tin/debug/bootimage-tin.bin -device isa-debug-exit,iobase=0xf4,iosize=0x04 -serial stdio -display none 
