@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Prepare environment
-      run: rustup override set nightly && rustup component add rust-src && rustup target add x86_64-tin
+      run: rustup override set nightly && rustup component add rust-src
     - name: Build
       run: cargo build
     - name: Run tests
