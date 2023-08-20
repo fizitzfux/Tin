@@ -53,11 +53,11 @@ pub extern "C" fn _start() -> ! {
 
     // println!("{}", memory::read_addr_u64(102000usize));
 
-    loop {
+    // loop {
         let blk = memory::alloc_block();
-        if blk.id == 0 {break}
-        println!("\n0x{:?}", blk);
-    }
+        // if blk.id == 0 {break}
+        println!("\n{:?}", blk);
+    // }
 
     // memory::alloc_block();
 

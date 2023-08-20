@@ -60,7 +60,7 @@ pub fn block_free(id: u64) -> bool {
 }
 
 pub fn alloc_block() -> Block {
-    for i in 10000..20000 {
+    for i in 0x100..0x200 {
         if block_free(i) {
             return Block::new(i, 0);
         };
