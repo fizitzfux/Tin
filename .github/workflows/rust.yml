@@ -17,6 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: cargo build
+      run: rustup target add x86_64-tin && cargo build
     - name: Run tests
-      run: cargo test
+      run: rustup target add x86_64-tin && cargo test
