@@ -29,7 +29,7 @@ fn panic(info: &PanicInfo) -> ! {
 // main function here
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello Worleeee{}", "!");
+    println!("Hello Worlqeeee{}", "!");
 
     tin::init();
 
@@ -53,11 +53,13 @@ pub extern "C" fn _start() -> ! {
 
     // println!("{}", memory::read_addr_u64(102000usize));
 
-    // loop {
+    let mut i: u32 = 0;
+    while true {
         let blk = memory::alloc_block();
-        // if blk.id == 0 {break}
-        println!("\n{:?}", blk);
-    // }
+        if blk.id == 0 {break}
+        i+=1;
+        print!("{}", i);
+    }
 
     // memory::alloc_block();
 

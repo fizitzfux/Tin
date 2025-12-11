@@ -50,7 +50,7 @@ impl Block {
 }
 
 pub fn block_free(id: u64) -> bool {
-    print!("{} ", id);
+    // print!("{} ", id);
     for i in (0..256).step_by(8) {
         if read_addr_u64((id*256+i) as usize) != 0 {
             return false;
@@ -60,7 +60,7 @@ pub fn block_free(id: u64) -> bool {
 }
 
 pub fn alloc_block() -> Block {
-    for i in 0x100..0x200 {
+    for i in 0x100..0x110000000 {
         if block_free(i) {
             return Block::new(i, 0);
         };

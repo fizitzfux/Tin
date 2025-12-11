@@ -4,11 +4,6 @@ use lazy_static::lazy_static;
 
 use crate::serial_println;
 
-// pub fn init_idt() {
-//     let mut idt = InterruptDescriptorTable::new();
-//     idt.breakpoint.set_handler_fn(breakpoint_handler);
-// }
-
 extern "x86-interrupt" fn breakpoint_handler(
     stack_frame: InterruptStackFrame)
 {
@@ -17,7 +12,8 @@ extern "x86-interrupt" fn breakpoint_handler(
 extern "x86-interrupt" fn page_fault_handler(
     stack_frame: InterruptStackFrame, error_code: PageFaultErrorCode)
 {
-    panic!("EXCEPTION {:08b}: PAGE FAULT\n{:#?}", error_code, stack_frame);
+    serial_println!("PAGE_FAULT");
+    // panic!("EXCEPTION {:08b}: PAGE FAULT\n{:#?}", error_code, stack_frame);
 }
 extern "x86-interrupt" fn double_fault_handler(
     stack_frame: InterruptStackFrame, _error_code: u64) -> !
